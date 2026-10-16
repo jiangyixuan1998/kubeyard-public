@@ -1,0 +1,12 @@
+# secrets & local state
+.env
+server/config.yaml
+data/
+server/data/
+kubeconfig/
+*.log
+
+# build & deps
+server/*.exe
+web/node_modules/
+web/dist/

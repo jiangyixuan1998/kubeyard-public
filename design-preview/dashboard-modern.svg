@@ -1,0 +1,250 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="1000" viewBox="0 0 1440 1000" fill="none">
+  <defs>
+    <linearGradient id="brand" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#D71920"/>
+      <stop offset="1" stop-color="#A80F16"/>
+    </linearGradient>
+    <linearGradient id="hero" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#25282D"/>
+      <stop offset="1" stop-color="#393B40"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="5" stdDeviation="12" flood-color="#17191C" flood-opacity=".06"/>
+    </filter>
+    <style>
+      .font { font-family: "Microsoft YaHei", "PingFang SC", Arial, sans-serif; }
+      .muted { fill: #8A9099; }
+      .ink { fill: #25282D; }
+      .small { font-size: 12px; }
+      .label { font-size: 13px; fill: #777E88; }
+      .card { fill: #FFFFFF; stroke: #ECEEF1; }
+    </style>
+  </defs>
+
+  <rect width="1440" height="1000" fill="#F4F5F7"/>
+
+  <!-- Sidebar -->
+  <rect width="244" height="1000" fill="#292B30"/>
+  <rect width="244" height="70" fill="#24262B"/>
+  <rect x="25" y="21" width="29" height="29" rx="7" fill="#3E5CE8"/>
+  <g transform="translate(28 24) scale(.96)" fill="none" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="5.2" r="1.9"/>
+    <line x1="12" y1="7.1" x2="12" y2="18.6"/>
+    <line x1="8.4" y1="9.6" x2="15.6" y2="9.6"/>
+    <path d="M5.6 13.2 C5.6 17.6 9 19.6 12 19.6 C15 19.6 18.4 17.6 18.4 13.2"/>
+    <path d="M4.2 15.4 L5.6 13.2 L7.4 14.4"/>
+    <path d="M19.8 15.4 L18.4 13.2 L16.6 14.4"/>
+  </g>
+  <text x="66" y="42" class="font" fill="#FFFFFF" font-size="18" font-weight="700">KubeYard</text>
+  <text x="67" y="56" class="font" fill="#AEB3BD" font-size="8" letter-spacing="1.25">KUBERNETES PLATFORM</text>
+  <text x="24" y="102" class="font" fill="#858991" font-size="10" font-weight="700" letter-spacing="1.4">工作台</text>
+  <rect x="12" y="116" width="220" height="42" rx="8" fill="#D71920" fill-opacity=".18"/>
+  <rect x="12" y="126" width="3" height="22" rx="1.5" fill="#E5262D"/>
+  <path d="M31 130h15v12H31zM34 127h9v3h-9z" stroke="#FFFFFF" stroke-width="1.6" stroke-linejoin="round"/>
+  <text x="58" y="143" class="font" fill="#FFFFFF" font-size="14" font-weight="600">集群总览</text>
+  <circle cx="211" cy="137" r="3" fill="#F05B60"/>
+
+  <g class="font" font-size="14" fill="#B5B8BE">
+    <path d="M32 185h14v13H32zM35 181h8v4h-8z" stroke="#A9ADB5" stroke-width="1.5"/>
+    <text x="58" y="197">资源管理</text>
+    <path d="M33 229h13v13H33zM36 226h7" stroke="#A9ADB5" stroke-width="1.5"/>
+    <text x="58" y="240">集群管理</text>
+    <circle cx="39.5" cy="278" r="7" stroke="#A9ADB5" stroke-width="1.5"/>
+    <path d="M39.5 267v3M39.5 286v3M28 278h3M48 278h3" stroke="#A9ADB5" stroke-width="1.5"/>
+    <text x="58" y="283">事件中心</text>
+    <path d="M32 316h15v13H32zM35 312h9v4h-9zM36 321h7" stroke="#A9ADB5" stroke-width="1.5"/>
+    <text x="58" y="328">终端录像</text>
+  </g>
+  <text x="24" y="381" class="font" fill="#858991" font-size="10" font-weight="700" letter-spacing="1.4">平台管理</text>
+  <g class="font" font-size="14" fill="#B5B8BE">
+    <circle cx="39" cy="416" r="7" stroke="#A9ADB5" stroke-width="1.5"/>
+    <path d="M28 433c1-6 5-9 11-9s10 3 11 9" stroke="#A9ADB5" stroke-width="1.5"/>
+    <text x="58" y="421">用户与授权</text>
+    <path d="M32 452h15v13H32zM36 449h7v3h-7zM36 458h7" stroke="#A9ADB5" stroke-width="1.5"/>
+    <text x="58" y="464">审计日志</text>
+    <path d="M39 492l2.2 4.5 5 .7-3.6 3.5.9 5-4.5-2.4-4.5 2.4.9-5-3.6-3.5 5-.7z" stroke="#A9ADB5" stroke-width="1.4" stroke-linejoin="round"/>
+    <text x="58" y="505">系统设置</text>
+  </g>
+  <line x1="20" y1="929" x2="224" y2="929" stroke="#41434A"/>
+  <circle cx="39" cy="961" r="17" fill="#45474E"/>
+  <text x="39" y="966" text-anchor="middle" class="font" fill="#FFFFFF" font-size="12" font-weight="700">运</text>
+  <text x="66" y="958" class="font" fill="#FFFFFF" font-size="13" font-weight="600">运维管理员</text>
+  <text x="66" y="976" class="font" fill="#92969E" font-size="11">平台管理员</text>
+  <circle cx="216" cy="961" r="2" fill="#858991"/>
+  <circle cx="216" cy="968" r="2" fill="#858991"/>
+  <circle cx="216" cy="975" r="2" fill="#858991"/>
+
+  <!-- Header -->
+  <rect x="244" width="1196" height="70" fill="#FFFFFF"/>
+  <line x1="244" y1="69.5" x2="1440" y2="69.5" stroke="#E9EBEF"/>
+  <path d="M274 27h16M274 35h16M274 43h16" stroke="#646B75" stroke-width="1.8" stroke-linecap="round"/>
+  <text x="310" y="42" class="font" fill="#292B30" font-size="14">基础设施</text>
+  <path d="M393 37l4 4 4-4" stroke="#A0A5AD" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="424" y="42" class="font" fill="#A0A5AD" font-size="14">/</text>
+  <text x="445" y="42" class="font" fill="#292B30" font-size="14" font-weight="600">集群总览</text>
+  <rect x="1143" y="18" width="140" height="34" rx="17" fill="#F7F7F8" stroke="#E9EBEF"/>
+  <rect x="1146" y="21" width="68" height="28" rx="14" fill="#FFFFFF" filter="url(#shadow)"/>
+  <text x="1180" y="39" text-anchor="middle" class="font" fill="#B80F18" font-size="12" font-weight="700">新版体验</text>
+  <text x="1245" y="39" text-anchor="middle" class="font" fill="#7B818A" font-size="12">经典版</text>
+  <circle cx="1318" cy="35" r="16" fill="#F7E7E8"/>
+  <text x="1318" y="40" text-anchor="middle" class="font" fill="#B80F18" font-size="12" font-weight="700">中</text>
+  <text x="1344" y="39" class="font" fill="#454A52" font-size="12">中文</text>
+  <path d="M1392 28l7 7-7 7-7-7z" fill="#D71920"/>
+
+  <!-- Main heading -->
+  <text x="280" y="119" class="font ink" font-size="25" font-weight="700">集群总览</text>
+  <text x="280" y="145" class="font muted" font-size="13">统一掌握多集群运行状态、资源使用与待处理风险。</text>
+  <rect x="1173" y="101" width="112" height="36" rx="7" fill="#FFFFFF" stroke="#E4E6EA"/>
+  <path d="M1191 119a7 7 0 1 1 2 5" stroke="#6E747D" stroke-width="1.5" stroke-linecap="round"/>
+  <path d="M1189 115v5h5" stroke="#6E747D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="1210" y="124" class="font" fill="#555B64" font-size="12">立即刷新</text>
+  <rect x="1295" y="101" width="113" height="36" rx="7" fill="url(#brand)"/>
+  <path d="M1315 112v14M1308 119h14" stroke="#FFFFFF" stroke-width="1.7" stroke-linecap="round"/>
+  <text x="1330" y="124" class="font" fill="#FFFFFF" font-size="12" font-weight="600">AI 巡检</text>
+
+  <!-- Overall status hero -->
+  <g filter="url(#shadow)">
+    <rect x="280" y="166" width="1128" height="142" rx="12" fill="url(#hero)"/>
+  </g>
+  <circle cx="1350" cy="188" r="58" fill="#FFFFFF" fill-opacity=".025"/>
+  <circle cx="1307" cy="295" r="82" fill="#FFFFFF" fill-opacity=".02"/>
+  <text x="308" y="198" class="font" fill="#AEB2BA" font-size="12">平台运行状态</text>
+  <circle cx="316" cy="232" r="5" fill="#42C78A"/>
+  <text x="331" y="239" class="font" fill="#FFFFFF" font-size="22" font-weight="700">整体运行平稳</text>
+  <text x="308" y="273" class="font" fill="#AEB2BA" font-size="12">数据更新于 10:28 · 自动刷新每 5 分钟</text>
+  <line x1="555" y1="193" x2="555" y2="281" stroke="#55585F"/>
+  <g class="font">
+    <text x="591" y="218" fill="#AEB2BA" font-size="12">纳管集群</text>
+    <text x="591" y="262" fill="#FFFFFF" font-size="31" font-weight="700">08</text>
+    <text x="640" y="260" fill="#848992" font-size="12">个</text>
+    <text x="733" y="218" fill="#AEB2BA" font-size="12">健康集群</text>
+    <text x="733" y="262" fill="#FFFFFF" font-size="31" font-weight="700">07</text>
+    <text x="782" y="260" fill="#848992" font-size="12">个</text>
+    <text x="875" y="218" fill="#AEB2BA" font-size="12">异常 Pod</text>
+    <text x="875" y="262" fill="#F06B70" font-size="31" font-weight="700">12</text>
+    <text x="917" y="260" fill="#848992" font-size="12">个</text>
+    <text x="1017" y="218" fill="#AEB2BA" font-size="12">未就绪工作负载</text>
+    <text x="1017" y="262" fill="#F2B75E" font-size="31" font-weight="700">05</text>
+    <text x="1066" y="260" fill="#848992" font-size="12">个</text>
+  </g>
+  <rect x="1192" y="204" width="184" height="68" rx="9" fill="#FFFFFF" fill-opacity=".07" stroke="#FFFFFF" stroke-opacity=".09"/>
+  <path d="M1215 239l10-13 9 8 13-17" stroke="#EA6268" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M1247 217h-1v7" stroke="#EA6268" stroke-width="2.5" stroke-linecap="round"/>
+  <text x="1260" y="232" class="font" fill="#B9BDC4" font-size="11">近 24 小时告警</text>
+  <text x="1260" y="253" class="font" fill="#FFFFFF" font-size="17" font-weight="700">持续关注</text>
+
+  <!-- Metrics -->
+  <g filter="url(#shadow)">
+    <rect x="280" y="328" width="268" height="100" rx="10" class="card"/>
+    <rect x="566" y="328" width="268" height="100" rx="10" class="card"/>
+    <rect x="852" y="328" width="268" height="100" rx="10" class="card"/>
+    <rect x="1138" y="328" width="270" height="100" rx="10" class="card"/>
+  </g>
+  <g class="font">
+    <text x="302" y="358" class="label">集群节点</text><text x="302" y="399" class="ink" font-size="27" font-weight="700">126</text><text x="350" y="398" class="muted" font-size="12">节点</text>
+    <rect x="470" y="352" width="54" height="28" rx="8" fill="#EAF7F1"/><text x="497" y="371" text-anchor="middle" fill="#21966A" font-size="11">就绪 98%</text>
+    <text x="588" y="358" class="label">运行中 Pod</text><text x="588" y="399" class="ink" font-size="27" font-weight="700">2,486</text><text x="650" y="398" class="muted" font-size="12">个</text>
+    <path d="M744 391l9-11 8 5 11-17 9 8 10-12" stroke="#30A879" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="874" y="358" class="label">CPU 请求 / 可分配</text><text x="874" y="399" class="ink" font-size="25" font-weight="700">62.4%</text>
+    <rect x="1047" y="382" width="48" height="6" rx="3" fill="#ECEEF1"/><rect x="1047" y="382" width="30" height="6" rx="3" fill="#D71920"/>
+    <text x="1160" y="358" class="label">内存请求 / 可分配</text><text x="1160" y="399" class="ink" font-size="25" font-weight="700">71.8%</text>
+    <rect x="1332" y="382" width="48" height="6" rx="3" fill="#ECEEF1"/><rect x="1332" y="382" width="35" height="6" rx="3" fill="#E9A03B"/>
+  </g>
+
+  <!-- Cluster section -->
+  <text x="280" y="474" class="font ink" font-size="17" font-weight="700">集群资源概况</text>
+  <text x="414" y="474" class="font muted" font-size="12">授权范围内的运行状态与容量使用</text>
+  <text x="1368" y="474" text-anchor="end" class="font" fill="#B70F18" font-size="12">查看全部集群  ›</text>
+  <g filter="url(#shadow)">
+    <rect x="280" y="493" width="356" height="205" rx="10" class="card"/>
+    <rect x="666" y="493" width="356" height="205" rx="10" class="card"/>
+    <rect x="1052" y="493" width="356" height="205" rx="10" class="card"/>
+  </g>
+  <!-- Cluster card 1 -->
+  <circle cx="305" cy="522" r="4" fill="#28A873"/>
+  <text x="318" y="527" class="font ink" font-size="14" font-weight="700">生产集群 · 华东</text>
+  <rect x="550" y="510" width="62" height="23" rx="11.5" fill="#EAF7F1"/><text x="581" y="526" text-anchor="middle" class="font" fill="#218A62" font-size="10">运行正常</text>
+  <text x="303" y="550" class="font muted" font-size="11">prod-east-01  ·  Kubernetes 1.31</text>
+  <line x1="303" y1="564" x2="613" y2="564" stroke="#F0F1F3"/>
+  <text x="303" y="588" class="font" fill="#727984" font-size="11">节点</text><text x="350" y="588" class="font ink" font-size="12" font-weight="600">24 / 24 就绪</text>
+  <text x="303" y="612" class="font" fill="#727984" font-size="11">工作负载</text><text x="365" y="612" class="font ink" font-size="12" font-weight="600">318 个</text>
+  <text x="303" y="650" class="font" fill="#727984" font-size="11">CPU</text>
+  <rect x="340" y="642" width="114" height="7" rx="3.5" fill="#ECEEF1"/><rect x="340" y="642" width="68" height="7" rx="3.5" fill="#D71920"/>
+  <text x="464" y="650" class="font ink" font-size="11" font-weight="600">59%</text>
+  <text x="521" y="650" class="font" fill="#727984" font-size="11">内存</text>
+  <rect x="557" y="642" width="39" height="7" rx="3.5" fill="#ECEEF1"/><rect x="557" y="642" width="29" height="7" rx="3.5" fill="#E9A03B"/>
+  <text x="600" y="650" class="font ink" font-size="11" font-weight="600">74%</text>
+  <text x="303" y="679" class="font muted" font-size="10">最近检查 10:27:48</text>
+  <!-- Cluster card 2 -->
+  <circle cx="691" cy="522" r="4" fill="#28A873"/>
+  <text x="704" y="527" class="font ink" font-size="14" font-weight="700">门店集群 · 华南</text>
+  <rect x="936" y="510" width="62" height="23" rx="11.5" fill="#EAF7F1"/><text x="967" y="526" text-anchor="middle" class="font" fill="#218A62" font-size="10">运行正常</text>
+  <text x="689" y="550" class="font muted" font-size="11">store-south-03  ·  Kubernetes 1.30</text>
+  <line x1="689" y1="564" x2="999" y2="564" stroke="#F0F1F3"/>
+  <text x="689" y="588" class="font" fill="#727984" font-size="11">节点</text><text x="736" y="588" class="font ink" font-size="12" font-weight="600">18 / 18 就绪</text>
+  <text x="689" y="612" class="font" fill="#727984" font-size="11">工作负载</text><text x="751" y="612" class="font ink" font-size="12" font-weight="600">204 个</text>
+  <text x="689" y="650" class="font" fill="#727984" font-size="11">CPU</text>
+  <rect x="726" y="642" width="114" height="7" rx="3.5" fill="#ECEEF1"/><rect x="726" y="642" width="55" height="7" rx="3.5" fill="#D71920"/>
+  <text x="850" y="650" class="font ink" font-size="11" font-weight="600">48%</text>
+  <text x="907" y="650" class="font" fill="#727984" font-size="11">内存</text>
+  <rect x="943" y="642" width="39" height="7" rx="3.5" fill="#ECEEF1"/><rect x="943" y="642" width="23" height="7" rx="3.5" fill="#30A879"/>
+  <text x="986" y="650" class="font ink" font-size="11" font-weight="600">61%</text>
+  <text x="689" y="679" class="font muted" font-size="10">最近检查 10:27:36</text>
+  <!-- Cluster card 3 -->
+  <circle cx="1077" cy="522" r="4" fill="#E9A03B"/>
+  <text x="1090" y="527" class="font ink" font-size="14" font-weight="700">测试集群 · 华北</text>
+  <rect x="1322" y="510" width="62" height="23" rx="11.5" fill="#FFF5E8"/><text x="1353" y="526" text-anchor="middle" class="font" fill="#B7791F" font-size="10">部分异常</text>
+  <text x="1075" y="550" class="font muted" font-size="11">test-north-02  ·  Kubernetes 1.29</text>
+  <line x1="1075" y1="564" x2="1385" y2="564" stroke="#F0F1F3"/>
+  <text x="1075" y="588" class="font" fill="#727984" font-size="11">节点</text><text x="1122" y="588" class="font ink" font-size="12" font-weight="600">11 / 12 就绪</text>
+  <text x="1075" y="612" class="font" fill="#727984" font-size="11">异常 Pod</text><text x="1137" y="612" class="font" fill="#D71920" font-size="12" font-weight="700">3 个需关注</text>
+  <text x="1075" y="650" class="font" fill="#727984" font-size="11">CPU</text>
+  <rect x="1112" y="642" width="114" height="7" rx="3.5" fill="#ECEEF1"/><rect x="1112" y="642" width="87" height="7" rx="3.5" fill="#E9A03B"/>
+  <text x="1236" y="650" class="font ink" font-size="11" font-weight="600">76%</text>
+  <text x="1293" y="650" class="font" fill="#727984" font-size="11">内存</text>
+  <rect x="1329" y="642" width="39" height="7" rx="3.5" fill="#ECEEF1"/><rect x="1329" y="642" width="35" height="7" rx="3.5" fill="#D71920"/>
+  <text x="1372" y="650" class="font ink" font-size="11" font-weight="600">89%</text>
+  <text x="1075" y="679" class="font muted" font-size="10">最近检查 10:27:21</text>
+
+  <!-- Lower panels -->
+  <text x="280" y="741" class="font ink" font-size="17" font-weight="700">需要关注</text>
+  <text x="374" y="741" class="font muted" font-size="12">按严重程度排序 · 点击问题查看详情</text>
+  <g filter="url(#shadow)">
+    <rect x="280" y="760" width="708" height="206" rx="10" class="card"/>
+    <rect x="1006" y="760" width="402" height="206" rx="10" class="card"/>
+  </g>
+  <text x="304" y="791" class="font ink" font-size="13" font-weight="700">异常 Pod</text>
+  <rect x="374" y="775" width="29" height="20" rx="10" fill="#FCEBEC"/><text x="388.5" y="789" text-anchor="middle" class="font" fill="#C52D34" font-size="10" font-weight="700">12</text>
+  <text x="964" y="791" text-anchor="end" class="font" fill="#B70F18" font-size="11">查看全部 ›</text>
+  <line x1="304" y1="807" x2="964" y2="807" stroke="#F0F1F3"/>
+  <g class="font">
+    <text x="304" y="830" fill="#9298A1" font-size="10">集群 / 命名空间</text><text x="480" y="830" fill="#9298A1" font-size="10">Pod 名称</text><text x="770" y="830" fill="#9298A1" font-size="10">异常状态</text><text x="900" y="830" fill="#9298A1" font-size="10">重启</text>
+    <line x1="304" y1="841" x2="964" y2="841" stroke="#F4F5F6"/>
+    <text x="304" y="864" fill="#4D535C" font-size="11">prod-east-01 / checkout</text><text x="480" y="864" fill="#333840" font-size="11" font-weight="600">checkout-api-7f8b9d…</text>
+    <rect x="770" y="849" width="105" height="21" rx="10.5" fill="#FCEBEC"/><circle cx="783" cy="859.5" r="3" fill="#D71920"/><text x="792" y="863" fill="#BD2930" font-size="10">CrashLoopBackOff</text><text x="910" y="864" fill="#626873" font-size="11">18</text>
+    <line x1="304" y1="878" x2="964" y2="878" stroke="#F4F5F6"/>
+    <text x="304" y="901" fill="#4D535C" font-size="11">test-north-02 / data</text><text x="480" y="901" fill="#333840" font-size="11" font-weight="600">batch-worker-65c7d4…</text>
+    <rect x="770" y="886" width="89" height="21" rx="10.5" fill="#FFF5E8"/><circle cx="783" cy="896.5" r="3" fill="#E9A03B"/><text x="792" y="900" fill="#A16B19" font-size="10">ImagePullBackOff</text><text x="910" y="901" fill="#626873" font-size="11">4</text>
+    <line x1="304" y1="915" x2="964" y2="915" stroke="#F4F5F6"/>
+    <text x="304" y="938" fill="#4D535C" font-size="11">prod-west-02 / menu</text><text x="480" y="938" fill="#333840" font-size="11" font-weight="600">menu-sync-6c94f8…</text>
+    <rect x="770" y="923" width="105" height="21" rx="10.5" fill="#FCEBEC"/><circle cx="783" cy="933.5" r="3" fill="#D71920"/><text x="792" y="937" fill="#BD2930" font-size="10">CrashLoopBackOff</text><text x="910" y="938" fill="#626873" font-size="11">9</text>
+  </g>
+
+  <text x="1030" y="791" class="font ink" font-size="13" font-weight="700">Warning 事件</text>
+  <rect x="1126" y="775" width="34" height="20" rx="10" fill="#FCEBEC"/><text x="1143" y="789" text-anchor="middle" class="font" fill="#C52D34" font-size="10" font-weight="700">36</text>
+  <text x="1384" y="791" text-anchor="end" class="font" fill="#B70F18" font-size="11">近 24 小时 ›</text>
+  <line x1="1030" y1="807" x2="1384" y2="807" stroke="#F0F1F3"/>
+  <circle cx="1040" cy="837" r="4" fill="#E9A03B"/>
+  <text x="1054" y="841" class="font" fill="#353A42" font-size="11" font-weight="600">FailedScheduling</text>
+  <text x="1368" y="841" text-anchor="end" class="font muted" font-size="10">2 分钟前</text>
+  <text x="1054" y="858" class="font muted" font-size="10">prod-east-01 · checkout-api</text>
+  <line x1="1030" y1="872" x2="1384" y2="872" stroke="#F4F5F6"/>
+  <circle cx="1040" cy="893" r="4" fill="#D71920"/>
+  <text x="1054" y="897" class="font" fill="#353A42" font-size="11" font-weight="600">BackOff</text>
+  <text x="1368" y="897" text-anchor="end" class="font muted" font-size="10">8 分钟前</text>
+  <text x="1054" y="914" class="font muted" font-size="10">test-north-02 · batch-worker</text>
+  <line x1="1030" y1="928" x2="1384" y2="928" stroke="#F4F5F6"/>
+  <circle cx="1040" cy="949" r="4" fill="#E9A03B"/>
+  <text x="1054" y="953" class="font" fill="#353A42" font-size="11" font-weight="600">Unhealthy</text>
+  <text x="1368" y="953" text-anchor="end" class="font muted" font-size="10">16 分钟前</text>
+</svg>

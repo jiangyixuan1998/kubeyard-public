@@ -1,0 +1,149 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="900" viewBox="0 0 1440 900" fill="none">
+  <defs>
+    <linearGradient id="leftBg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#292B30"/>
+      <stop offset=".58" stop-color="#24262B"/>
+      <stop offset="1" stop-color="#3A2023"/>
+    </linearGradient>
+    <linearGradient id="red" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#E1272D"/>
+      <stop offset="1" stop-color="#B70F18"/>
+    </linearGradient>
+    <linearGradient id="ring" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#F14A50" stop-opacity=".9"/>
+      <stop offset="1" stop-color="#C0151D" stop-opacity=".08"/>
+    </linearGradient>
+    <filter id="shadow" x="-25%" y="-25%" width="150%" height="160%">
+      <feDropShadow dx="0" dy="16" stdDeviation="22" flood-color="#191B20" flood-opacity=".11"/>
+    </filter>
+    <style>
+      .font { font-family: "Microsoft YaHei", "PingFang SC", Arial, sans-serif; }
+    </style>
+  </defs>
+
+  <rect width="1440" height="900" fill="#F5F5F6"/>
+  <rect width="760" height="900" fill="url(#leftBg)"/>
+
+  <!-- Subtle technical grid -->
+  <g stroke="#FFFFFF" stroke-opacity=".045">
+    <path d="M0 100H760M0 200H760M0 300H760M0 400H760M0 500H760M0 600H760M0 700H760M0 800H760"/>
+    <path d="M80 0V900M180 0V900M280 0V900M380 0V900M480 0V900M580 0V900M680 0V900"/>
+  </g>
+  <circle cx="540" cy="365" r="255" stroke="#FFFFFF" stroke-opacity=".035"/>
+  <circle cx="540" cy="365" r="202" stroke="#FFFFFF" stroke-opacity=".045"/>
+  <circle cx="540" cy="365" r="147" stroke="#FFFFFF" stroke-opacity=".055"/>
+  <circle cx="540" cy="365" r="98" stroke="#FFFFFF" stroke-opacity=".065"/>
+
+  <!-- Brand lockup -->
+  <rect x="64" y="51" width="42" height="42" rx="11" fill="#3E5CE8"/>
+  <g transform="translate(73 60) scale(1.16)" fill="none" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="5.2" r="1.9"/>
+    <line x1="12" y1="7.1" x2="12" y2="18.6"/>
+    <line x1="8.4" y1="9.6" x2="15.6" y2="9.6"/>
+    <path d="M5.6 13.2 C5.6 17.6 9 19.6 12 19.6 C15 19.6 18.4 17.6 18.4 13.2"/>
+    <path d="M4.2 15.4 L5.6 13.2 L7.4 14.4"/>
+    <path d="M19.8 15.4 L18.4 13.2 L16.6 14.4"/>
+  </g>
+  <text x="120" y="72" class="font" fill="#FFFFFF" font-size="18" font-weight="700">KubeYard</text>
+  <text x="120" y="89" class="font" fill="#C9C9CC" font-size="9" letter-spacing="1.5">KUBERNETES PLATFORM</text>
+  <rect x="590" y="59" width="112" height="28" rx="14" fill="#FFFFFF" fill-opacity=".07" stroke="#FFFFFF" stroke-opacity=".12"/>
+  <circle cx="607" cy="73" r="3.5" fill="#5BD19B"/>
+  <text x="619" y="77" class="font" fill="#E6E6E8" font-size="10">平台服务正常</text>
+
+  <!-- Abstract multi-cluster orbit -->
+  <ellipse cx="540" cy="365" rx="179" ry="74" transform="rotate(-28 540 365)" stroke="url(#ring)" stroke-width="1.5"/>
+  <ellipse cx="540" cy="365" rx="179" ry="74" transform="rotate(32 540 365)" stroke="#FFFFFF" stroke-opacity=".18"/>
+  <ellipse cx="540" cy="365" rx="179" ry="74" transform="rotate(90 540 365)" stroke="#FFFFFF" stroke-opacity=".1"/>
+  <path d="M389 366L476 327L540 365L610 312L685 358M476 327L455 251M540 365L577 454M610 312L649 252" stroke="#E84A4F" stroke-opacity=".42" stroke-width="1.4"/>
+  <circle cx="389" cy="366" r="5" fill="#E84A4F"/>
+  <circle cx="476" cy="327" r="6" fill="#292B30" stroke="#F15B60" stroke-width="2"/>
+  <circle cx="540" cy="365" r="14" fill="#D71920" fill-opacity=".22"/>
+  <circle cx="540" cy="365" r="7" fill="#EA3037"/>
+  <circle cx="610" cy="312" r="6" fill="#292B30" stroke="#F15B60" stroke-width="2"/>
+  <circle cx="685" cy="358" r="5" fill="#E84A4F"/>
+  <circle cx="455" cy="251" r="4" fill="#D9DADD" fill-opacity=".7"/>
+  <circle cx="577" cy="454" r="4" fill="#D9DADD" fill-opacity=".7"/>
+  <circle cx="649" cy="252" r="4" fill="#D9DADD" fill-opacity=".7"/>
+  <rect x="574" y="337" width="103" height="34" rx="8" fill="#FFFFFF" fill-opacity=".08" stroke="#FFFFFF" stroke-opacity=".12"/>
+  <circle cx="590" cy="354" r="4" fill="#5BD19B"/>
+  <text x="601" y="358" class="font" fill="#F3F3F4" font-size="10">多集群统一纳管</text>
+
+  <!-- Product message -->
+  <text x="68" y="584" class="font" fill="#F2767A" font-size="11" font-weight="700" letter-spacing="2.4">KUBEYARD · PLATFORM</text>
+  <text x="64" y="641" class="font" fill="#FFFFFF" font-size="34" font-weight="700">让复杂集群管理</text>
+  <text x="64" y="687" class="font" fill="#FFFFFF" font-size="34" font-weight="700">变得清晰、可靠。</text>
+  <text x="66" y="722" class="font" fill="#B8BAC0" font-size="14">统一管理 · 精细授权 · 全程审计</text>
+  <line x1="66" y1="762" x2="694" y2="762" stroke="#FFFFFF" stroke-opacity=".12"/>
+  <g class="font">
+    <text x="67" y="799" fill="#FFFFFF" font-size="18" font-weight="700">多集群</text>
+    <text x="67" y="820" fill="#9FA2AA" font-size="11">统一纳管与巡检</text>
+    <line x1="246" y1="788" x2="246" y2="828" stroke="#FFFFFF" stroke-opacity=".13"/>
+    <text x="275" y="799" fill="#FFFFFF" font-size="18" font-weight="700">字段级</text>
+    <text x="275" y="820" fill="#9FA2AA" font-size="11">精细化权限控制</text>
+    <line x1="454" y1="788" x2="454" y2="828" stroke="#FFFFFF" stroke-opacity=".13"/>
+    <text x="484" y="799" fill="#FFFFFF" font-size="18" font-weight="700">全链路</text>
+    <text x="484" y="820" fill="#9FA2AA" font-size="11">操作审计与追溯</text>
+  </g>
+  <text x="66" y="869" class="font" fill="#777B83" font-size="10">© 2026 KubeYard · 企业级 Kubernetes 管理平台</text>
+
+  <!-- Right login area -->
+  <rect x="760" width="680" height="900" fill="#F8F8F9"/>
+  <rect x="760" y="0" width="680" height="8" fill="url(#red)"/>
+  <rect x="840" y="42" width="78" height="28" rx="14" fill="#FFFFFF" stroke="#E9EAED"/>
+  <rect x="843" y="45" width="39" height="22" rx="11" fill="#F8E9EA"/>
+  <text x="862.5" y="60" text-anchor="middle" class="font" fill="#B70F18" font-size="10" font-weight="700">新版</text>
+  <text x="899" y="60" text-anchor="middle" class="font" fill="#8C919A" font-size="10">经典版</text>
+
+  <g filter="url(#shadow)">
+    <rect x="888" y="139" width="424" height="624" rx="16" fill="#FFFFFF"/>
+  </g>
+  <rect x="888" y="139" width="4" height="86" rx="2" fill="url(#red)"/>
+
+  <!-- Form header -->
+  <rect x="928" y="178" width="44" height="44" rx="12" fill="#3E5CE8"/>
+  <g transform="translate(938 188) scale(1.08)" fill="none" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="5.2" r="1.9"/>
+    <line x1="12" y1="7.1" x2="12" y2="18.6"/>
+    <line x1="8.4" y1="9.6" x2="15.6" y2="9.6"/>
+    <path d="M5.6 13.2 C5.6 17.6 9 19.6 12 19.6 C15 19.6 18.4 17.6 18.4 13.2"/>
+    <path d="M4.2 15.4 L5.6 13.2 L7.4 14.4"/>
+    <path d="M19.8 15.4 L18.4 13.2 L16.6 14.4"/>
+  </g>
+  <text x="987" y="195" class="font" fill="#292B30" font-size="17" font-weight="700">KubeYard</text>
+  <text x="987" y="214" class="font" fill="#9297A0" font-size="11">Kubernetes 多集群管理平台</text>
+
+  <text x="928" y="279" class="font" fill="#24272C" font-size="25" font-weight="700">欢迎回来</text>
+  <text x="928" y="305" class="font" fill="#858B94" font-size="13">登录以继续管理你的集群与云原生资源</text>
+
+  <text x="928" y="350" class="font" fill="#454A52" font-size="12" font-weight="600">用户名</text>
+  <rect x="928" y="362" width="344" height="48" rx="7" fill="#FFFFFF" stroke="#DDE0E4"/>
+  <circle cx="949" cy="381" r="5.5" stroke="#979DA6" stroke-width="1.5"/>
+  <path d="M939 398c1-5.5 4.5-8 10-8s9 2.5 10 8" stroke="#979DA6" stroke-width="1.5" stroke-linecap="round"/>
+  <text x="973" y="392" class="font" fill="#A6ABB3" font-size="13">请输入用户名</text>
+
+  <text x="928" y="443" class="font" fill="#454A52" font-size="12" font-weight="600">密码</text>
+  <rect x="928" y="455" width="344" height="48" rx="7" fill="#FFFFFF" stroke="#DDE0E4"/>
+  <rect x="941" y="474" width="15" height="13" rx="3" stroke="#979DA6" stroke-width="1.5"/>
+  <path d="M945 474v-3a3.5 3.5 0 0 1 7 0v3" stroke="#979DA6" stroke-width="1.5"/>
+  <text x="973" y="485" class="font" fill="#A6ABB3" font-size="13">请输入密码</text>
+  <path d="M1237 474c-5 0-9 4-11 6 2 2 6 6 11 6s9-4 11-6c-2-2-6-6-11-6Z" stroke="#A5AAB2" stroke-width="1.3"/>
+  <circle cx="1237" cy="480" r="2.5" stroke="#A5AAB2" stroke-width="1.3"/>
+
+  <rect x="928" y="532" width="344" height="48" rx="7" fill="url(#red)"/>
+  <text x="1100" y="562" text-anchor="middle" class="font" fill="#FFFFFF" font-size="14" font-weight="700">本地账号登录</text>
+  <path d="M1246 551h11m-5-5 5 5-5 5" stroke="#FFFFFF" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <line x1="928" y1="615" x2="1069" y2="615" stroke="#ECEEF0"/>
+  <text x="1100" y="619" text-anchor="middle" class="font" fill="#A1A6AE" font-size="11">企业统一认证</text>
+  <line x1="1131" y1="615" x2="1272" y2="615" stroke="#ECEEF0"/>
+
+  <rect x="928" y="641" width="344" height="46" rx="7" fill="#FFFFFF" stroke="#DADDE2"/>
+  <circle cx="1049" cy="664" r="8" stroke="#B70F18" stroke-width="1.5"/>
+  <path d="M1045 664h8m-4-4v8" stroke="#B70F18" stroke-width="1.3" stroke-linecap="round"/>
+  <text x="1106" y="669" text-anchor="middle" class="font" fill="#4D535C" font-size="13" font-weight="600">使用企业统一认证登录</text>
+  <text x="1100" y="720" text-anchor="middle" class="font" fill="#A2A7AF" font-size="11">支持本地账号与企业 SSO · 忘记密码请联系平台管理员</text>
+
+  <text x="1100" y="818" text-anchor="middle" class="font" fill="#A3A7AE" font-size="11">安全连接</text>
+  <path d="M1052 814l4 4 8-9" stroke="#2BA273" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="1100" y="856" text-anchor="middle" class="font" fill="#B4B8BF" font-size="10">© 2026 KubeYard · 企业级 Kubernetes 管理平台</text>
+</svg>

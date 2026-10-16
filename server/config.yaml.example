@@ -1,0 +1,20 @@
+# KubeYard 服务端配置示例（复制为 config.yaml 使用；环境变量优先级更高）
+server:
+  port: 8000
+  mode: release          # debug / release
+  web_dist: ../web/dist  # 前端构建产物目录（存在则由后端直接托管）
+database:
+  host: 127.0.0.1        # MySQL 地址
+  port: 3306
+  user: kubeyard
+  password: <数据库密码>   # 生产建议用环境变量 KUBEYARD_DB_PASSWORD 注入，不落文件
+  dbname: kubeyard
+data_dir: ./data         # 终端录像等落盘目录
+
+# 环境变量覆盖项（优先级高于本文件，Docker 部署只用环境变量）：
+#   KUBEYARD_PORT / KUBEYARD_MODE / KUBEYARD_WEB_DIST / KUBEYARD_DATA_DIR
+#   KUBEYARD_DB_HOST / KUBEYARD_DB_PORT / KUBEYARD_DB_USER / KUBEYARD_DB_PASSWORD / KUBEYARD_DB_NAME
+#
+# 会话/凭据密钥（KUBEYARD_JWT_KEY / KUBEYARD_ENCRYPTION_KEY）默认无需配置：
+#   未设置时首次启动自动生成随机密钥并存入数据库 settings 表，随数据库备份即可；
+#   多实例共用数据库、或需密钥与数据分离时才显式注入（openssl rand -base64 32）。

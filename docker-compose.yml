@@ -1,0 +1,55 @@
+# KubeYard 一键部署：MySQL 8 + 平台单容器
+# 使用方式：
+#   1. cp .env.example .env 并填好全部变量（密钥用 openssl rand -base64 32 生成）
+#   2. docker compose up -d --build
+#   3. docker compose logs -f kubeyard   # 首次启动日志里有随机初始管理员密码（仅打印一次）
+#
+# 已有外部 MySQL？删掉下方 mysql 服务，把 kubeyard 的 KUBEYARD_DB_HOST/PORT 指向它即可。
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: kubeyard-mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:?请在 .env 中设置 MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: kubeyard
+      MYSQL_USER: kubeyard
+      MYSQL_PASSWORD: ${MYSQL_DB_PASSWORD:?请在 .env 中设置 MYSQL_DB_PASSWORD}
+      TZ: Asia/Shanghai
+    command:
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_unicode_ci
+    volumes:
+      - mysql-data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD-SHELL", "mysqladmin ping -h localhost -uroot -p$$MYSQL_ROOT_PASSWORD --silent"]
+      interval: 5s
+      timeout: 3s
+      retries: 30
+
+  kubeyard:
+    build: .
+    container_name: kubeyard
+    restart: unless-stopped
+    ports:
+      - "8000:8000"          # 前置 Nginx/Ingress 做 TLS 时改为 "127.0.0.1:8000:8000"
+    environment:
+      KUBEYARD_DB_HOST: mysql
+      KUBEYARD_DB_PORT: "3306"
+      KUBEYARD_DB_USER: kubeyard
+      KUBEYARD_DB_PASSWORD: ${MYSQL_DB_PASSWORD}
+      KUBEYARD_DB_NAME: kubeyard
+      # 会话/凭据密钥：默认留空，首次启动自动生成随机密钥并存入数据库 settings 表
+      #（随数据库备份；多实例共库或需密钥与数据分离时才在 .env 显式指定）
+      KUBEYARD_JWT_KEY: ${KUBEYARD_JWT_KEY:-}
+      KUBEYARD_ENCRYPTION_KEY: ${KUBEYARD_ENCRYPTION_KEY:-}
+      TZ: Asia/Shanghai
+    volumes:
+      - ./data:/app/data     # 终端录像等落盘内容
+    depends_on:
+      mysql:
+        condition: service_healthy
+
+volumes:
+  mysql-data:
