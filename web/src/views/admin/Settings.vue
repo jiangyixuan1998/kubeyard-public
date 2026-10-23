@@ -235,6 +235,18 @@
 
       <!-- ======================== 键值对 ======================== -->
       <el-tab-pane label="键值对" name="kv">
+        <!-- 续期门户：到期提醒的申请入口（空 = 前端不显示入口，文案回落为「联系管理员」） -->
+        <div class="section-title">续期门户</div>
+        <div class="preset-section-hint">
+          配置权限/账号到期提醒里的「申请续期」跳转地址（如企业统一权限门户）。
+          留空 = 前端只提示「联系平台管理员」，不显示跳转按钮。保存后对全站生效
+        </div>
+        <div class="kv-row">
+          <el-input v-model="renewalUrl" placeholder="https://portal.example.com" style="max-width: 480px" />
+          <el-button type="primary" :loading="renewalSaving" @click="saveRenewal">保存</el-button>
+        </div>
+        <el-divider style="margin: 18px 0" />
+        <div class="section-title">自定义键值对</div>
         <div v-for="(row, i) in rows" :key="i" class="kv-row">
           <el-input v-model="row.key" placeholder="键" style="width: 240px" />
           <el-input v-model="row.value" placeholder="值" />
@@ -563,6 +575,24 @@ async function doTestAI() {
 // ---------- 键值对 ----------
 const rows = ref<{ key: string; value: string }[]>([])
 const saving = ref(false)
+// 续期门户地址（renewal.portal_url）：到期提醒的申请入口
+const renewalUrl = ref('')
+const renewalSaving = ref(false)
+async function loadRenewal() {
+  try {
+    const m = (await getSettings()).data || {}
+    renewalUrl.value = String(m['renewal.portal_url'] || '')
+  } catch { /* 忽略 */ }
+}
+async function saveRenewal() {
+  renewalSaving.value = true
+  try {
+    await putSettings({ 'renewal.portal_url': renewalUrl.value.trim() })
+    ElMessage.success('续期门户已保存')
+  } catch (e) {
+    ElMessage.error(errMsg(e))
+  } finally { renewalSaving.value = false }
+}
 
 async function load() {
   try {

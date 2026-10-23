@@ -84,8 +84,8 @@
         >
           <template #default>
             <div class="expiry-action">
-              <span>如需继续使用，请前往「统一权限门户」重新申请权限；到期账号仍可登录平台。</span>
-              <el-button size="small" type="danger" plain tag="a" href="https://portal.example.com" target="_blank" rel="noopener">前往统一权限门户申请</el-button>
+              <span>如需继续使用，如需继续使用，请联系平台管理员申请权限续期；到期账号仍可登录平台。</span>
+              <el-button v-if="renewalPortalUrl" size="small" type="danger" plain tag="a" :href="renewalPortalUrl" target="_blank" rel="noopener">前往统一权限门户申请</el-button>
             </div>
           </template>
         </el-alert>
@@ -100,8 +100,8 @@
         >
           <template #default>
             <div class="expiry-action">
-              <span>到期后集群资源将不再显示；请前往「统一权限门户」申请权限续期。</span>
-              <el-button size="small" type="warning" plain tag="a" href="https://portal.example.com" target="_blank" rel="noopener">前往统一权限门户申请</el-button>
+              <span>到期后集群资源将不再显示；请联系平台管理员申请权限续期。</span>
+              <el-button v-if="renewalPortalUrl" size="small" type="warning" plain tag="a" :href="renewalPortalUrl" target="_blank" rel="noopener">前往统一权限门户申请</el-button>
             </div>
           </template>
         </el-alert>
@@ -159,6 +159,17 @@ const accountExpiringSoon = computed(() => {
 })
 const accountExpiringDate = computed(() =>
   auth.user?.expires_at ? new Date(auth.user.expires_at).toLocaleString('zh-CN', { hour12: false }) : '')
+
+// 续期门户地址（系统设置 renewal.portal_url，可空）：配置了才显示申请跳转按钮
+const renewalPortalUrl = ref('')
+onMounted(async () => {
+  try {
+    const { getSettings } = await import('../api')
+    const m = (await getSettings()).data || {}
+    const u = String(m['renewal.portal_url'] || '').trim()
+    if (u) renewalPortalUrl.value = u
+  } catch { /* 未登录或读取失败：不显示入口 */ }
+})
 
 // 刷新页面后重算管理员范围（localStorage 缓存兜底，保证路由守卫即时可用）
 onMounted(() => { auth.loadScope() })

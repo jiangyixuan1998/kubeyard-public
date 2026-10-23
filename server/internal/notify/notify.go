@@ -4,6 +4,7 @@ import (
 	"log"
 	"math"
 	"strconv"
+	"strings"
 	"time"
 
 	"gorm.io/gorm"
@@ -19,10 +20,10 @@ import (
 
 // 消息类型（前端按类型渲染图标）
 const (
-	TypeGrantAdded     = "grant_added"     // 权限新增（直接授权 / 加入权限组）
-	TypeGrantRemoved   = "grant_removed"   // 权限移除（直接授权撤销 / 移出权限组）
-	TypeGrantRenewed   = "grant_renewed"   // 权限续期（覆盖续授 / 成员时限延长 / 账号续期）
-	TypeGrantExpiring  = "grant_expiring"  // 授权/组权限即将到期（<7 天，扫描生成）
+	TypeGrantAdded      = "grant_added"      // 权限新增（直接授权 / 加入权限组）
+	TypeGrantRemoved    = "grant_removed"    // 权限移除（直接授权撤销 / 移出权限组）
+	TypeGrantRenewed    = "grant_renewed"    // 权限续期（覆盖续授 / 成员时限延长 / 账号续期）
+	TypeGrantExpiring   = "grant_expiring"   // 授权/组权限即将到期（<7 天，扫描生成）
 	TypeAccountExpiring = "account_expiring" // 账号即将到期（<7 天，扫描生成）
 )
 
@@ -72,6 +73,16 @@ func daysLeft(t time.Time, now time.Time) int {
 		return 1
 	}
 	return d
+}
+
+// renewalPortalHint 续期引导文案：管理端配置了 renewal.portal_url 则引导跳转，
+// 未配置则只提示联系管理员（开源部署默认无此配置）
+func renewalPortalHint(db *gorm.DB) string {
+	var s model.Setting
+	if err := db.Where("`key` = ?", "renewal.portal_url").First(&s).Error; err == nil && strings.TrimSpace(s.Value) != "" {
+		return "请及时到统一权限门户（" + strings.TrimSpace(s.Value) + "）申请续期"
+	}
+	return "请及时联系平台管理员申请续期"
 }
 
 // ScanExpiring 到期预警扫描（后台每小时调用）：
@@ -132,7 +143,7 @@ func ScanExpiring(db *gorm.DB) {
 			":" + g.Namespace + ":" + g.Resource + ":" + g.Verb + ":" + g.Actions + ":" + strconv.FormatInt(g.ExpiresAt.Unix(), 10)
 		push(db, human, g.UserID, TypeGrantExpiring, "授权即将到期",
 			"集群 "+clusterOf(g.ClusterID)+" / 命名空间 "+orStar(g.Namespace)+" / "+orStar(g.Resource)+
-				" 将于 "+strconv.Itoa(daysLeft(*g.ExpiresAt, now))+" 天后（"+g.ExpiresAt.Format("01-02 15:04")+"）到期，请及时到统一权限门户（portal.example.com）申请续期", &dedup)
+				" 将于 "+strconv.Itoa(daysLeft(*g.ExpiresAt, now))+" 天后（"+g.ExpiresAt.Format("01-02 15:04")+"）到期，"+renewalPortalHint(db), &dedup)
 	}
 
 	// 权限组成员关系（到期 = 整组权限失效）
@@ -154,7 +165,7 @@ func ScanExpiring(db *gorm.DB) {
 			":" + strconv.FormatInt(m.ExpiresAt.Unix(), 10)
 		push(db, human, m.UserID, TypeGrantExpiring, "权限组权限即将到期",
 			"权限组「"+name+"」的成员时限将于 "+strconv.Itoa(daysLeft(*m.ExpiresAt, now))+" 天后（"+m.ExpiresAt.Format("01-02 15:04")+
-				"）到期，届时整组权限自动失效，请及时到统一权限门户（portal.example.com）申请续期", &dedup)
+				"）到期，届时整组权限自动失效，"+renewalPortalHint(db), &dedup)
 	}
 
 	// 账号有效期（与 Layout 黄横幅互补，铃铛里留一条记录）
@@ -162,7 +173,7 @@ func ScanExpiring(db *gorm.DB) {
 		dedup := "exp:u:" + strconv.FormatUint(uint64(u.ID), 10) + ":" + strconv.FormatInt(u.ExpiresAt.Unix(), 10)
 		push(db, human, u.ID, TypeAccountExpiring, "账号即将到期",
 			"你的账号将于 "+strconv.Itoa(daysLeft(*u.ExpiresAt, now))+" 天后（"+u.ExpiresAt.Format("2006-01-02")+"）到期，"+
-				"到期后集群资源将不再显示，请及时到统一权限门户（portal.example.com）申请续期", &dedup)
+				"到期后集群资源将不再显示，"+renewalPortalHint(db), &dedup)
 	}
 
 	// 消息清理：已读 30 天、未读 90 天；顺带清 AI 用量留痕（>90 天，配额只看当天）

@@ -21,8 +21,8 @@
             <span class="unread-dot" v-if="!n.read_at"></span>{{ n.title }}
           </div>
           <div class="notice-content">{{ n.content }}</div>
-          <!-- 到期预警：给出「统一权限门户」申请入口（点击不触发已读外的其他行为） -->
-          <a v-if="isExpiring(n.type)" class="notice-link" href="https://portal.example.com" target="_blank" rel="noopener" @click.stop>
+          <!-- 到期预警：续期入口（系统设置配置了 renewal.portal_url 才显示） -->
+          <a v-if="isExpiring(n.type) && renewalPortalUrl" class="notice-link" :href="renewalPortalUrl" target="_blank" rel="noopener" @click.stop>
             前往统一权限门户申请 →
           </a>
           <div class="notice-time dim">{{ fmtTime(n.created_at) }}</div>
@@ -54,10 +54,21 @@ function metaOf(t: string) {
   return typeMeta[t] || { icon: 'InfoFilled', color: 'var(--el-color-info)' }
 }
 
-// 到期预警类消息（授权/权限组/账号）显示「统一权限门户」申请跳转
+// 到期预警类消息（授权/权限组/账号）：配置了续期门户时显示跳转
 function isExpiring(t: string): boolean {
   return t === 'grant_expiring' || t === 'account_expiring'
 }
+
+// 续期门户地址（系统设置 renewal.portal_url，可空）：空 = 不显示跳转
+const renewalPortalUrl = ref('')
+onMounted(async () => {
+  try {
+    const { getSettings } = await import('../api')
+    const m = (await getSettings()).data || {}
+    const u = String(m['renewal.portal_url'] || '').trim()
+    if (u) renewalPortalUrl.value = u
+  } catch { /* 读取失败不显示入口 */ }
+})
 
 async function load() {
   loading.value = true

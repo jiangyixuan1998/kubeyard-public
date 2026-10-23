@@ -70,10 +70,10 @@
           权限 = 集群 × 命名空间 × 资源 × 动作；「可修改字段」仅在动作含 update 时生效。
           已过期条目仅失去效力、授权关系保留——联系管理员改期即可续授，无需重新配置。
         </div>
-        <!-- 存在到期/将到期条目：「统一权限门户」申请入口 -->
+        <!-- 存在到期/将到期条目：续期申请入口（可配置门户地址） -->
         <div v-if="hasExpiring" class="perms-renew">
-          <span>你有即将到期或已到期的权限/账号，请前往「统一权限门户」申请续期。</span>
-          <el-button size="small" type="warning" plain tag="a" href="https://portal.example.com" target="_blank" rel="noopener">前往统一权限门户申请</el-button>
+          <span>你有即将到期或已到期的权限/账号{{ renewalPortalUrl ? '，请前往统一权限门户申请续期' : '，请联系平台管理员申请续期' }}。</span>
+          <el-button v-if="renewalPortalUrl" size="small" type="warning" plain tag="a" :href="renewalPortalUrl" target="_blank" rel="noopener">前往统一权限门户申请</el-button>
         </div>
       </template>
       <el-empty v-else-if="!loading" description="暂无任何授权" />
@@ -82,7 +82,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref } from 'vue'
+import { computed, onMounted, ref } from 'vue'
 import { myGrants } from '../api'
 import { useAuthStore } from '../stores/auth'
 import { verbAliases, resourceAliases, actionLabelOf, expiryStateOf } from '../utils/grant'
@@ -112,7 +112,18 @@ function rowClass({ row }: any): string {
   return row.expires_at && expired(row.expires_at) ? 'perm-expired-row' : ''
 }
 
-// 是否存在到期/将到期（<7 天）条目 → 显示「统一权限门户」申请入口（有效期排除零值占位）
+// 续期门户地址（系统设置 renewal.portal_url）：配置了才显示跳转按钮
+const renewalPortalUrl = ref('')
+onMounted(async () => {
+  try {
+    const { getSettings } = await import('../api')
+    const m = (await getSettings()).data || {}
+    const u = String(m['renewal.portal_url'] || '').trim()
+    if (u) renewalPortalUrl.value = u
+  } catch { /* 读取失败不显示入口 */ }
+})
+
+// 是否存在到期/将到期（<7 天）条目 → 显示续期申请入口（有效期排除零值占位）
 const hasExpiring = computed(() => rows.value.some((r) => {
   if (!r.expires_at || !validDate(r.expires_at)) return false
   return expiryStateOf(r.expires_at) === 'expired' || expiryStateOf(r.expires_at) === 'soon'
